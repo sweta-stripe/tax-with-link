@@ -1,0 +1,16 @@
+{
+  "name": "link",
+  "configureDotEnv": true,
+  "integrations": [
+    {
+      "name": "main",
+      "clients": ["html", "react-cra"],
+      "servers": [
+        "node",
+        "php",
+        "python",
+        "ruby"
+      ]
+    }
+  ]
+}

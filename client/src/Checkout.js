@@ -20,6 +20,7 @@ const PaymentForm = ({lineItems, initialAmount}) => {
   const [clientSecret, setClientSecret] = useState(null);
 
   const [loading, setLoading] = useState(false);
+  const subtotal = lineItems.map((lineItem) => lineItem.priceInCents * lineItem.quantity).reduce((acc, price) => acc + price, 0);
 
   const handleError = (error) => {
     setLoading(false);
@@ -97,7 +98,8 @@ const PaymentForm = ({lineItems, initialAmount}) => {
             </div>
           ))}
         </h3>
-        <h3>Total: {amount}</h3>
+        <h3>Subtotal: ${(subtotal/100).toFixed(2)}</h3>
+        <h3>Total (including tax): ${(amount/100).toFixed(2)}</h3>
         <h1>Accept a payment</h1>
 
         <form onSubmit={handleSubmit}>
